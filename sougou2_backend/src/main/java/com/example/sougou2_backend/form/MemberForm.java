@@ -34,6 +34,8 @@ public class MemberForm {
 	private String placeName;
 	/** 登録日 */
 	private String regist;
+	/** 遷移元 判別用 */
+	private String submitView;
 	
 	/**
 	 * Form → Dto 変換
