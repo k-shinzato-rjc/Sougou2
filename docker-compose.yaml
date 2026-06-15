@@ -1,0 +1,37 @@
+version: '3.8'
+
+name: sougou2
+
+services:
+  # SpringBoot
+  backend:
+    build: ./sougou2_backend
+    container_name: sougou2_backend
+    ports:
+      - "8080:8080"
+    volumes:
+      - ./sougou2_backend:/app
+    environment:
+      # ホストマシンのIP（またはDockerのデフォルトゲートウェイ）を指定
+      # Docker Desktop環境なら 'host.docker.internal' が推奨です
+      SPRING_DATASOURCE_URL: jdbc:postgresql://host.docker.internal:5432/training
+      SPRING_DATASOURCE_USERNAME: docker
+      SPRING_DATASOURCE_PASSWORD: docker
+
+  # Next.js
+  frontend:
+    build: ./sougou2_frontend
+    container_name: sougou2_frontend
+    ports:
+      - "3000:3000"
+    volumes:
+      - ./sougou2_frontend:/app
+      - /app/node_modules
+    environment:
+      NEXT_PUBLIC_API_URL: http://localhost:8080
+
+# 既存のネットワークを指定する場合（必要であれば）
+# networks:
+#   default:
+#     external:
+#       name: 既存のネットワーク名
