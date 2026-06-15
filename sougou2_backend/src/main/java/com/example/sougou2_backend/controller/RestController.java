@@ -26,9 +26,9 @@ public class RestController {
 	private PositionService	positionService;
 	
 	/**
-	 * 全メンバーリストをViewへ渡し、一覧画面へ遷移
+	 * 全メンバーリストをJson形式で返す
 	 * @param model
-	 * @return メンバー一覧画面
+	 * @return 全メンバーリスト（Dto)
 	 */
 	@ResponseBody
 	@GetMapping("/api/list")
