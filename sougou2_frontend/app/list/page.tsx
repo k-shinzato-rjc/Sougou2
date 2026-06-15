@@ -83,13 +83,13 @@ export default function ListView(){
                             <td>{member?.positionName}</td>
                             <td>{member?.placeName}</td>
                             <td>
-                                <button onClick={() => router.push("/detail")}>詳細</button>
+                                <button onClick={() => router.push(`/detail?memberId=${member.memberId}`)}>詳細</button>
                             </td>
                             <td>
-                                <button onClick={() => router.push("/update")}>更新</button>
+                                <button onClick={() => router.push(`/update?memberId=${member.memberId}`)}>更新</button>
                             </td>
                             <td>
-                                <button onClick={() => router.push("/delete")}>削除</button>
+                                <button onClick={() => router.push(`/delete?memberId=${member.memberId}`)}>削除</button>
                             </td>
                         </tr>
                     ))}
