@@ -6,6 +6,7 @@ import { Menu } from "@/app/components/menubar"
 import { FormTable } from "@/app/components/table"
 
 export default function UpdateCompleteView() {
+    // 遷移用
     const router = useRouter()
     const userFormData = globalState((state:any) => state.userFormData)
 
