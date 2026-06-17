@@ -92,4 +92,17 @@ public class RestController {
 		
 		return ResponseEntity.ok(memberService.save(form.toDto()));
 	}
+	
+	/**
+	 * ID指定でメンバー情報を削除
+	 * @param memberId
+	 * @return HTTPレスポンス詳細
+	 */
+	@ResponseBody
+	@PostMapping("/api/delete")
+	public ResponseEntity<?> delete(@RequestParam("memberId") String memberId){
+		memberService.deleteById(memberId);
+		
+		return ResponseEntity.ok(null);
+	}
 }
