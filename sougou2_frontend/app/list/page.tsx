@@ -4,7 +4,7 @@ import { useState, useEffect } from "react"
 import { useRouter } from "next/navigation"
 
 // types.tsから型を呼び出し
-import { Member, springURL } from "../types"
+import { Member, springURL } from "../components/types"
 
 export default function ListView(){
     // メンバーデータ格納用ステートメント

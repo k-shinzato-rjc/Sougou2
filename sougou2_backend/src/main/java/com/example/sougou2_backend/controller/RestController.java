@@ -53,7 +53,7 @@ public class RestController {
 	 */
 	@ResponseBody
 	@PostMapping("/api/member")
-	public MemberDto detail(@RequestParam("id") String memberId) {
+	public MemberDto detail(@RequestParam("memberId") String memberId) {
 		return memberService.findById(memberId);
 	}
 	
@@ -84,8 +84,8 @@ public class RestController {
 	 * @return 登録メンバーデータ
 	 */
 	@ResponseBody
-	@PostMapping("/api/add")
-	public ResponseEntity<?> add(@Valid @RequestBody MemberForm form, BindingResult result) {
+	@PostMapping("/api/save")
+	public ResponseEntity<?> save(@Valid @RequestBody MemberForm form, BindingResult result) {
 		if(result.hasErrors()) {
 			return ResponseEntity.badRequest().body("バリデーションエラーです");
 		}

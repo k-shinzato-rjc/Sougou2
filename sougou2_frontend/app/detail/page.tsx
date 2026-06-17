@@ -1,10 +1,11 @@
 "use client"
 
 import { useState, useEffect } from "react"
-import { useRouter,useSearchParams, useServerInsertedHTML } from "next/navigation";
+import { useRouter,useSearchParams } from "next/navigation";
+import { Menu } from "../components/menubar";
 
 // types.tsから型を呼び出し
-import { Member, springURL } from "../types"
+import { Member, springURL } from "../components/types"
 
 export default function DetailView() {
     const[member , setMember] = useState<Member>()
@@ -17,7 +18,7 @@ export default function DetailView() {
     useEffect(() => {
         const FechData = async () => {
             try{
-                const response = await fetch(springURL + `/api/member?id=${memberId}`, {method : "post", credentials : "include"})
+                const response = await fetch(springURL + `/api/member?memberId=${memberId}`, {method : "post", credentials : "include"})
                 if(!response.ok){
                     console.log(response.text())
                     alert("データを取得できませんでした")
@@ -40,8 +41,9 @@ export default function DetailView() {
 
     return(
         <div>
-            <button onClick={() => router.push("/")}>メニュー</button><br/>
-            <button onClick={() => router.push("/list")}>メンバー一覧</button><br/>
+            {/* メニューバーの呼び出し */}
+            <Menu/>
+            
             <div>詳細画面</div>
             <table>
                 <tbody>

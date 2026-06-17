@@ -1,7 +1,6 @@
 "use client"
 
 import { globalState } from "./state";
-import { Member, UserFormData } from "./types";
 
 export const FormTable = () => {
 // 入力フォームを呼び出す
