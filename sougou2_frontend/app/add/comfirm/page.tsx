@@ -1,9 +1,9 @@
 "use client"
 
 import { useRouter } from "next/navigation"
-import { globalState } from "@/app/state"
-import { springURL } from "@/app/types"
-import { FormTable } from "@/app/table"
+import { globalState } from "@/app/components/state"
+import { springURL } from "@/app/components/types"
+import { FormTable } from "@/app/components/table"
 
 // グローバル状態管理フックに保存されているデータを表示 →　登録ボタン押下でSpringBootへ転送してDB登録
 export default function AddComfirmView() {
@@ -15,7 +15,7 @@ export default function AddComfirmView() {
     // 転送したデータのバリデーションに問題が無ければ、完了画面へ遷移
     const Submit = async () => {
         try{
-            const response = await fetch(springURL + "/api/add", {
+            const response = await fetch(springURL + "/api/save", {
                 method : "post",
                 credentials : "include",
                 headers : {

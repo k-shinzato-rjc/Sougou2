@@ -5,11 +5,11 @@ import { set, useForm } from "react-hook-form"
 import { useRouter } from "next/navigation"
 
 // types.tsから型
-import { Position, Place, UserFormData, springURL } from "../types"
+import { Position, Place, UserFormData, springURL } from "../components/types"
 //グローバル状態管理のフックを呼び出し
-import { globalState } from "../state"
+import { globalState } from "../components/state"
 // テーブルを読み込み
-import { FormTable } from "../table"
+import { FormTable } from "../components/table"
 
 export default function AddView() {
     const[positions, setPositions] = useState<Position[]>()

@@ -20,6 +20,6 @@ export const globalState = create(persist((set) => ({
 
     // 格納用 処理
     setUserFormData : (data : UserFormData) => set({ userFormData : data }),
-    setResult : (data : any) => set({result : data}),
+    clearUserFormData : () => set({ userFormData : null })
 
 }), {name: "use-storage"}))
