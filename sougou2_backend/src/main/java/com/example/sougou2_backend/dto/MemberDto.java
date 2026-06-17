@@ -44,9 +44,9 @@ public class MemberDto {
 		MemberForm memberForm = new MemberForm();
 		memberForm.setMemberId(memberId);
 		memberForm.setName(name);
-		memberForm.setAge(age);
+		memberForm.setAge(Integer.valueOf(age));
 		memberForm.setAddress(address);
-		memberForm.setSex(sex);
+		memberForm.setSex(Integer.valueOf(sex));
 		memberForm.setMail(mail);
 		memberForm.setTel(tel);
 		memberForm.setPositionId(positionId);
@@ -75,7 +75,6 @@ public class MemberDto {
 		memberEntity.setPositionName(positionName);
 		memberEntity.setPlaceId(placeId);
 		memberEntity.setPlaceName(placeName);
-		memberEntity.setRegist(regist);
 		
 		return memberEntity;
 	}
