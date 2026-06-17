@@ -1,23 +1,10 @@
 "use client"
 
-import React from "react"
 import { useState, useEffect } from "react"
 import { useRouter,useSearchParams, useServerInsertedHTML } from "next/navigation";
 
-// メンバーデータ型
-type Member = {
-    memberId : string
-    name : string
-    age : string
-    sex : string
-    address : string
-    tel : string
-    mail : string
-    positionName : string
-    placeName : string
-}
-
-const springURL = "http://localhost:8080"
+// types.tsから型を呼び出し
+import { Member, springURL } from "../types"
 
 export default function DetailView() {
     const[member , setMember] = useState<Member>()

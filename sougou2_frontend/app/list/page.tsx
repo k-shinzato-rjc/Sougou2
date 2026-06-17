@@ -1,26 +1,10 @@
 "use client"
 
-import React from "react"
-import {useState, useEffect} from "react"
-import {useRouter} from "next/navigation"
+import { useState, useEffect } from "react"
+import { useRouter } from "next/navigation"
 
-// メンバーデータ受け取り用
-type Member = {
-    memberId : string
-    name : string
-    age : string
-    address : string
-    sex : string
-    mail : string
-    tel : string
-    positionId : string
-    positionName : string
-    placeId : string
-    placeName : string
-    regist : string
-}
-
-const springURL = "http://localhost:8080"
+// types.tsから型を呼び出し
+import { Member, springURL } from "../types"
 
 export default function ListView(){
     // メンバーデータ格納用ステートメント
@@ -44,6 +28,7 @@ export default function ListView(){
             }catch(error){
                 console.log(error)
                 alert("通信に失敗しました")
+                return
             }
         }
         fetchData();
@@ -52,7 +37,7 @@ export default function ListView(){
     return(
         <div>
             <button onClick={() => router.push("/")}>メニュー</button>
-            <div>メニュー一覧画面</div>
+            <div>メンバー覧画面</div>
             <table>
                 <thead>
                     <tr>

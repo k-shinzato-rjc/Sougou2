@@ -5,6 +5,8 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
 
+import org.hibernate.annotations.CreationTimestamp;
+
 import com.example.sougou2_backend.dto.MemberDto;
 
 import lombok.Data;
@@ -58,6 +60,8 @@ public class MemberEntity {
 	private String placeName;
 	
 	/** 登録日 */
+	@CreationTimestamp
+	@Column(name = "regist", updatable = false)
 	private String regist;
 	
 	/**
